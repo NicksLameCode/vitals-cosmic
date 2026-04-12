@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+  <maintainer type="person">
+    <email>nick@example.invalid</email>
+    <name>Nick</name>
+    <description>Personal overlay maintainer</description>
+  </maintainer>
+  <longdescription lang="en">
+    COSMIC desktop applet for system vitals monitoring. Companion to
+    app-admin/vitals-rs: talks to com.corecoding.Vitals over the session bus
+    and renders sensors in a libcosmic panel applet.
+  </longdescription>
+  <upstream>
+    <remote-id type="github">NicksLameCode/vitals-cosmic</remote-id>
+  </upstream>
+</pkgmetadata>

@@ -1,0 +1,41 @@
+[package]
+name = "vitals-cosmic"
+version = "0.1.0"
+edition = "2021"
+license = "BSD-3-Clause"
+description = "System vitals applet for the COSMIC desktop (libcosmic companion to vitals-rs)"
+repository = "https://github.com/NicksLameCode/vitals-cosmic"
+
+[dependencies]
+libcosmic = { git = "https://github.com/pop-os/libcosmic.git", default-features = false, features = [
+    "applet",
+    "tokio",
+    "wayland",
+    "single-instance",
+] }
+
+# Re-use sensor types and formatters from the sibling Fedora/GNOME project.
+vitals-core = { path = "../vitals-rs/crates/vitals-core" }
+
+# D-Bus client for com.corecoding.Vitals
+zbus = { version = "4", default-features = false, features = ["tokio"] }
+
+tokio = { version = "1", features = [
+    "rt-multi-thread",
+    "macros",
+    "sync",
+    "time",
+] }
+futures-util = "0.3"
+
+serde = { version = "1", features = ["derive"] }
+toml = "0.8"
+
+anyhow = "1"
+log = "0.4"
+env_logger = "0.11"
+
+[profile.release]
+lto = "thin"
+strip = true
+codegen-units = 1

@@ -1,0 +1,14 @@
+[Desktop Entry]
+Name=Vitals
+Comment=System vitals monitor
+Exec=vitals-cosmic
+TryExec=vitals-cosmic
+Icon=com.corecoding.VitalsCosmic-symbolic
+Terminal=false
+Type=Application
+Categories=COSMIC;
+Keywords=COSMIC;Applet;Vitals;Sensors;Temperature;CPU;Memory;
+StartupNotify=true
+NoDisplay=true
+X-CosmicApplet=true
+X-CosmicHoverPopup=Start
