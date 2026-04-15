@@ -1,10 +1,14 @@
 [package]
 name = "vitals-cosmic"
 version = "0.1.0"
-edition = "2021"
+edition = "2024"
+rust-version = "1.85"
 license = "BSD-3-Clause"
-description = "System vitals applet for the COSMIC desktop (libcosmic companion to vitals-rs)"
+description = "Native libcosmic applet showing live system sensors in the COSMIC panel, powered by the vitals-rs daemon"
 repository = "https://github.com/NicksLameCode/vitals-cosmic"
+readme = "README.md"
+keywords = ["cosmic", "libcosmic", "applet", "sensors", "monitoring"]
+categories = ["gui", "os::linux-apis"]
 
 [dependencies]
 libcosmic = { git = "https://github.com/pop-os/libcosmic.git", default-features = false, features = [
