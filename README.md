@@ -21,7 +21,9 @@ A native [libcosmic](https://github.com/pop-os/libcosmic) applet that pins your 
 <br>
 
 <p align="center">
-  <img src="assets/demo.gif" alt="vitals-cosmic panel demo" width="100%">
+  <img src="assets/demo.gif" alt="vitals-cosmic panel chip row with live sensor updates" width="480">
+  <br>
+  <em>Live chip row in the COSMIC panel -- CPU, memory, temperature, and storage updating in real time.</em>
 </p>
 
 ## Why vitals-cosmic?
