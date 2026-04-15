@@ -312,7 +312,7 @@ scripts/record-demo.sh            # 12s default
 scripts/record-demo.sh 8          # custom duration
 ```
 
-Dependencies on Gentoo: `sudo emerge --ask gui-apps/gpu-screen-recorder media-video/ffmpeg media-gfx/gifski`. The script uses `xdg-desktop-portal` for region capture, so it works on COSMIC's Smithay compositor (wlroots-only tools like `wf-recorder` will not).
+Dependencies on Gentoo: `sudo emerge --ask media-video/gpu-screen-recorder media-video/ffmpeg`. The `gpu-screen-recorder` package lives in the [guru overlay](https://wiki.gentoo.org/wiki/Project:GURU) -- enable it with `sudo eselect repository enable guru && sudo emaint sync -r guru` if you haven't already. The script uses `xdg-desktop-portal` for region capture (works on COSMIC's Smithay compositor, unlike wlroots-only tools such as `wf-recorder`) and encodes the gif with a two-pass `ffmpeg` palette pipeline, so no `gifski` is needed.
 
 ### Design notes
 
