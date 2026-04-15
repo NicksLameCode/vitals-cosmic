@@ -39,9 +39,15 @@ PALETTE="$WORK/palette.png"
 mkdir -p "$(dirname "$OUT_GIF")"
 
 echo ">> Pick the region in the portal dialog. Recording ${DURATION}s..."
+# -fallback-cpu-encoding yes: use libx264/libx265 if VAAPI / NVENC encoding
+# is unavailable (e.g. missing vaapi driver or iGPU without HW encoders).
+# -k h264: pin codec explicitly so we don't get rejected if only h264 is
+# available via CPU encoding.
 gpu-screen-recorder \
     -w portal \
     -f 60 \
+    -k h264 \
+    -fallback-cpu-encoding yes \
     -c mp4 \
     -o "$MP4" &
 REC_PID=$!
@@ -50,7 +56,12 @@ kill -INT "$REC_PID" 2>/dev/null || true
 wait "$REC_PID" 2>/dev/null || true
 
 if [[ ! -s "$MP4" ]]; then
-    echo "error: capture file is empty; did you cancel the portal picker?" >&2
+    echo "error: capture file is missing or empty." >&2
+    echo "  Common causes:" >&2
+    echo "    - You cancelled the xdg-desktop-portal region picker" >&2
+    echo "    - gpu-screen-recorder could not find a working encoder" >&2
+    echo "      (scroll up for 'gsr error:' lines)" >&2
+    echo "    - Your user lacks access to /dev/dri/renderD128 (add to the 'video' group)" >&2
     exit 1
 fi
 
