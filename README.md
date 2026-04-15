@@ -298,7 +298,21 @@ vitals-cosmic/
     app-admin/vitals-cosmic/
       vitals-cosmic-0.1.0.ebuild
       metadata.xml
+  scripts/
+    record-demo.sh                # One-shot demo.gif recorder
+                                  # (gpu-screen-recorder -> gifski)
 ```
+
+### Recording the demo gif
+
+The README hero displays `assets/demo.gif`. To regenerate it, run:
+
+```bash
+scripts/record-demo.sh            # 12s default
+scripts/record-demo.sh 8          # custom duration
+```
+
+Dependencies on Gentoo: `sudo emerge --ask gui-apps/gpu-screen-recorder media-video/ffmpeg media-gfx/gifski`. The script uses `xdg-desktop-portal` for region capture, so it works on COSMIC's Smithay compositor (wlroots-only tools like `wf-recorder` will not).
 
 ### Design notes
 
